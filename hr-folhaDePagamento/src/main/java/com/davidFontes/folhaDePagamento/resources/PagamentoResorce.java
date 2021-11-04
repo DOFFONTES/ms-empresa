@@ -22,4 +22,5 @@ public class PagamentoResorce {
 	public ResponseEntity<Pagamento> buscaPagamento(@PathVariable Long trabalhadorId, @PathVariable Integer dias) {
 		return ResponseEntity.ok(pagamentoService.getPagamento(trabalhadorId, dias));
 	}
+	
 }
