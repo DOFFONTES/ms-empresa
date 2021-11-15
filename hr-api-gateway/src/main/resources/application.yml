@@ -12,6 +12,13 @@ spring:
     name: api-gateway
   cloud:
     gateway:
+      routes:
+        - id: hr-folhaDePagamento
+          uri:            lb://hr-folhadepagamento/pagamentos
+          predicates:          - Path=/pagamentos/**
+        - id: hr-trabalhador
+          uri:            lb://hr-trabalhador/trabalhadores
+          predicates:          - Path=/trabalhadores/**
       discovery:
         locator:
           lower-case-service-id: true
