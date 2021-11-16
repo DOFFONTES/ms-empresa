@@ -21,12 +21,12 @@ public class PagamentoService {
 	@CircuitBreaker(name = PAGAMENTO_SERVICE,fallbackMethod = FALLBACK_METHOD)
 	public Pagamento getPagamento(Long trabalhadorId, int dias) {
 		
-		try {
-			Thread.sleep(3000L);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(3000L);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		Trabalhador trabalhador = trabalhadorFeignClient.buscaPorId(trabalhadorId).getBody();
 				
