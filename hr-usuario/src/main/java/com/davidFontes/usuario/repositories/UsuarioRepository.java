@@ -7,4 +7,6 @@ import com.davidFontes.usuario.entities.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
+	
+	Usuario findByEmailIgnoreCase(String email);
 }

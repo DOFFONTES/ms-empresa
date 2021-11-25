@@ -16,9 +16,17 @@ spring:
         - id: hr-folhaDePagamento
           uri:            lb://hr-folhadepagamento/pagamentos
           predicates:          - Path=/pagamentos/**
+          
         - id: hr-trabalhador
           uri:            lb://hr-trabalhador/trabalhadores
           predicates:          - Path=/trabalhadores/**
+          
+        - id: hr-usuario
+          uri:
+            lb://hr-usuario/usuarios
+          predicates:
+          - Path=/usuarios/**
+          
       discovery:
         locator:
           lower-case-service-id: true
