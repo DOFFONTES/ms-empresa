@@ -27,6 +27,24 @@ spring:
           predicates:
           - Path=/usuarios/**
           
+        - id: hr-oauth
+          uri:
+            lb://hr-oauth/oauth
+          predicates:
+          - Path=/oauth/**
+          
+        - id: hr-security
+          uri:
+            lb://hr-security/security
+          predicates:
+          - Path=/security/**
+          
+      default-filters:
+        #Remove todos os cabeçalhos de solicitação confidenciais (Cookie, Set-Cookie e Autorização)
+        - RemoveRequestHeader=Cookie
+        - RemoveRequestHeader=Set-Cookie
+        - RemoveRequestHeader=Authorization
+          
       discovery:
         locator:
           lower-case-service-id: true

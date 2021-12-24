@@ -1,4 +1,4 @@
-package com.davidFontes.oauth;
+package com.davidFontes.security;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 @EnableEurekaClient
 @SpringBootApplication
-public class HrOauthApplication {
+//(exclude = {SecurityAutoConfiguration.class})
+public class HrSecurityApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HrOauthApplication.class, args);
+		SpringApplication.run(HrSecurityApplication.class, args);
 	}
 
 }
