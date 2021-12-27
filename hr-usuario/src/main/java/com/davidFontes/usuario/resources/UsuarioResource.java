@@ -28,7 +28,14 @@ public class UsuarioResource {
 		}catch(IllegalArgumentException e){
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
-
+	}
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<UsuarioDTO> buscaPorId(@PathVariable Long id) {
+		
+		Usuario obj = usuarioService.buscaPorId(id);
+				
+		return ResponseEntity.ok(new UsuarioDTO(obj));
 	}
 }
 
