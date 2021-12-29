@@ -2,12 +2,8 @@ package com.davidFontes.trabalhador.resources;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,13 +18,13 @@ import com.davidFontes.trabalhador.services.TrabalhadoresService;
 @RequestMapping(value = "/trabalhadores")
 public class TrabalhadorResource {
 	
-	private static Logger logger = LoggerFactory.getLogger(TrabalhadorResource.class);
+//	private static Logger logger = LoggerFactory.getLogger(TrabalhadorResource.class);
 	
-	@Value("${test.config}")
-	private String testConfig;
+//	@Value("${test.config}")
+//	private String testConfig;
 	
-	@Autowired
-	private Environment env;
+//	@Autowired
+//	private Environment env;
 
 	@Autowired
 	TrabalhadoresService trabalhadoresService;
@@ -42,7 +38,7 @@ public class TrabalhadorResource {
 	@GetMapping(value = "/config")
 	public ResponseEntity<Void> buscaConfig() {
 		
-		logger.info("Configuração: " + testConfig);
+		//logger.info("Configuração: " + testConfig);
 		
 		return ResponseEntity.noContent().build();
 	}
@@ -50,7 +46,7 @@ public class TrabalhadorResource {
 	@GetMapping("/{id}")
 	public ResponseEntity<Trabalhador> buscaPorId(@PathVariable Long id) {
 
-		logger.info("PORT = " + env.getProperty("local.server.port"));
+	//	logger.info("PORT = " + env.getProperty("local.server.port"));
 		
 		return ResponseEntity.ok(trabalhadoresService.buscaPorId(id));
 	}
